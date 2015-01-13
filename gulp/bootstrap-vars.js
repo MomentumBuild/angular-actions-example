@@ -26,7 +26,7 @@ module.exports = function() {
     ],
     template_index: 'app/index.jade',
     templates: 'app/pages/**/*.jade',
-    root: '../../example/',
+    root: 'example/',
     testing: ['../tests/api/**/*.js'],
     fonts: ['bower_components/ionicons/fonts/*.*']
   };

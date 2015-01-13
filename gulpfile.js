@@ -10,21 +10,21 @@ var $ = require('gulp-load-plugins')({
 });
 
 // List process
-// require('./gulp/list')(gulp, vars, $, args);
+// require('./gulp/list')(gulp, vars(), $, args);
 
 // Create process
-require('./gulp/create')(gulp, vars, $, args);
+require('./gulp/create')(gulp, vars(), $, args);
 
 // Default process
-require('./gulp/clean')(gulp, vars, $, args);
-require('./gulp/less')(gulp, vars, $, args);
-require('./gulp/scripts')(gulp, vars, $, args);
-require('./gulp/templates')(gulp, vars, $, args);
-// require('./gulp/fonts')(gulp, vars, $, args);
-// require('./gulp/testing')(gulp, vars, $, args);
+require('./gulp/clean')(gulp, vars(), $, args);
+require('./gulp/less')(gulp, vars(), $, args);
+require('./gulp/scripts')(gulp, vars(), $, args);
+require('./gulp/templates')(gulp, vars(), $, args);
+// require('./gulp/fonts')(gulp, vars(), $, args);
+// require('./gulp/testing')(gulp, vars(), $, args);
 
 // Rerun the task when a file changes
-require('./gulp/watch')(gulp, vars, $, args);
+require('./gulp/watch')(gulp, vars(), $, args);
 
 // Tasks
 gulp.task('create', ['clean-vars', 'move-vars', 'clean-templates', 'move-less', 'move-jade']);

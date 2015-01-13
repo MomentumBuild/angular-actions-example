@@ -11,7 +11,7 @@ module.exports = function(gulp, vars, $, args) {
     ], 
     [ 
     	'templates', 
-    	'template_index', 
+    	'index', 
     	'less', 
     	'scripts'
     ]);
