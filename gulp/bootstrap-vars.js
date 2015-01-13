@@ -4,8 +4,8 @@ module.exports = function() {
     scripts: [
       'bower_components/angular/angular.min.js', 
       'bower_components/ng-lodash/build/ng-lodash.min.js', 
-       'bower_components/momentum-petition/dist/actions.js', 
-      'bower_components/momentum-petition/dist/actions-tpl.js', 
+      'bower_components/momentum-actions/dist/actions.js', 
+      'bower_components/momentum-actions/dist/actions-tpl.js', 
       // 'bower_components/angular-animate/angular-animate.min.js',
       // 'bower_components/angular-messages/angular-messages.min.js',
       // 'bower_components/angular-resource/angular-resource.min.js',

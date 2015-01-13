@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var path = require('path');
 var args = require('yargs').argv;
+var http = require('http');
+var st = require('st');
 var vars = require('./gulp/vars');
 var $ = require('gulp-load-plugins')({
   rename: {
@@ -23,11 +25,20 @@ require('./gulp/templates')(gulp, vars(), $, args);
 // require('./gulp/fonts')(gulp, vars(), $, args);
 // require('./gulp/testing')(gulp, vars(), $, args);
 
+gulp.task('webserver', function() {
+  gulp.src('example/')
+    .pipe($.webserver({
+      livereload: true,
+      directoryListing: false,
+      open: true
+    }));
+});
+
 // Rerun the task when a file changes
 require('./gulp/watch')(gulp, vars(), $, args);
 
 // Tasks
 gulp.task('create', ['clean-vars', 'move-vars', 'clean-templates', 'move-less', 'move-jade']);
 // gulp.task('campaigns', ['list-campaigns']);
-gulp.task('default', ['clean', 'templates', 'index', 'scripts', 'less', 'watch']);
+gulp.task('default', ['clean', 'templates', 'index', 'scripts', 'less', 'webserver', 'watch']);
 

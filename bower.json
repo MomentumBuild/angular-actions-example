@@ -1,5 +1,5 @@
 {
-  "name": "Petition Example",
+  "name": "Angular action example",
   "version": "0.0.0",
   "homepage": "https://github.com/paulstefanday/",
   "authors": [
@@ -10,7 +10,6 @@
   "dependencies": {
     "angular": "*",
     "momentum-actions": "*",
-    "ng-lodash": "~0.1.0",
     "bootstrap": "~3.3.1",
     "angular-ui-router": "~0.2.13"
   },
