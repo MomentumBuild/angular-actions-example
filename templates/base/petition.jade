@@ -4,15 +4,15 @@
 	article
 		p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		hr
-		actions-feed(campaign-id="48" action-id="42" action="petition")
+		actions-feed(campaign-id="#{camp}" action-id="#{action}" server="#{host}"  action="petition")
 			.actionItem(ng-repeat="a in Feed.actions | orderBy:'-createdAt'")
 				p <b>{{ a.first_name }} said</b> {{ a.message}}
 					small.clearfix at {{ a.createdAt | date : 'medium' }}
-		//- example-feed(campaign-id="48" action-id="42" action="petition")
+		//- example-feed(campaign-id="#{camp}" action-id="#{action}" server="#{host}" action="petition")
 
 
 	aside
-		actions-form(campaign-id="48" action-id="42" action="petition") 
+		actions-form(campaign-id="#{camp}" action-id="#{action}" server="#{host}"  action="petition") 
 			h4 Enter your details to sign the petition now!
 			hr
 			form#actionForm(ng-submit="Form.create()")
@@ -23,4 +23,4 @@
 				textarea(ng-model="Form.newAction.message" ng-required="true" placeholder="Leave them a message!")
 				input(type="hidden" ng-model="Form.newAction.voted" ng-value="true")
 				button.primary Vote Yes!
-		//- example-form(campaign-id="48" action-id="42" action="petition") 
+		//- example-form(campaign-id="#{camp}" action-id="#{action}" server="#{host}"  action="petition") 

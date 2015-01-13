@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var path = require('path');
 var args = require('yargs').argv;
+if(args.server === 'local') args.host = 'http://localhost:1337';
+else if(args.server === 'live') args.host = 'http://www.momentum.build';
 var vars = require('./gulp/vars');
 var $ = require('gulp-load-plugins')({
   rename: {
@@ -23,14 +25,7 @@ require('./gulp/templates')(gulp, vars(), $, args);
 // require('./gulp/fonts')(gulp, vars(), $, args);
 // require('./gulp/testing')(gulp, vars(), $, args);
 
-gulp.task('webserver', function() {
-  gulp.src('example/')
-    .pipe($.webserver({
-      livereload: true,
-      directoryListing: false,
-      open: true
-    }));
-});
+require('./gulp/webserver')(gulp, vars(), $, args);
 
 // Rerun the task when a file changes
 require('./gulp/watch')(gulp, vars(), $, args);
