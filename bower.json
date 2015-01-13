@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "angular": "*",
-    "momentum-petition": "*",
+    "momentum-actions": "*",
     "ng-lodash": "~0.1.0",
     "bootstrap": "~3.3.1",
     "angular-ui-router": "~0.2.13"
