@@ -1,8 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
 var args = require('yargs').argv;
-var http = require('http');
-var st = require('st');
 var vars = require('./gulp/vars');
 var $ = require('gulp-load-plugins')({
   rename: {
