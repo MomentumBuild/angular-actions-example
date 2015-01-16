@@ -1,6 +1,6 @@
 module.exports = function(gulp, vars, $, args) {
     
-    gulp.task('watch', function() {
+    gulp.task('watch',  ['clean', 'templates', 'index', 'scripts', 'less'], function() {
         gulp.watch([ 
         	vars.less, 
         	vars.scripts[2],

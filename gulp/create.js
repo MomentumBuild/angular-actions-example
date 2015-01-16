@@ -41,6 +41,7 @@ module.exports = function(gulp, vars, $, args) {
 		gulp.src(root.jade)
 			.pipe($.rename('action.jade'))
 	    	.pipe(gulp.dest(root.dest))
+	    	.pipe($.connect.reload());
 	});
 
 }

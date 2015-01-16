@@ -1,6 +1,6 @@
 module.exports = function(gulp, vars, $) {
 
-	gulp.task('scripts', function() {
+	gulp.task('scripts', ['templates'], function() {
 	  gulp.src(vars.scripts)
 	    .pipe($.concat('app.js'))
 	    .pipe(gulp.dest(vars.root))
@@ -8,6 +8,7 @@ module.exports = function(gulp, vars, $) {
 	    .pipe($.uglify({mangle: false}))
 	    .pipe(gulp.dest(vars.root))
 	    .pipe($.filesize())
+	    .pipe($.connect.reload())
 	    .on('error', $.util.log)
 	});
 

@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
+var opn = require('opn');
 var args = require('yargs').argv;
 if(args.server === 'local') args.host = 'http://localhost:1337';
 else if(args.server === 'live') args.host = 'http://www.momentum.build';
@@ -11,9 +12,6 @@ var $ = require('gulp-load-plugins')({
   }
 });
 
-// List process
-// require('./gulp/list')(gulp, vars(), $, args);
-
 // Create process
 require('./gulp/create')(gulp, vars(), $, args);
 
@@ -22,9 +20,6 @@ require('./gulp/clean')(gulp, vars(), $, args);
 require('./gulp/less')(gulp, vars(), $, args);
 require('./gulp/scripts')(gulp, vars(), $, args);
 require('./gulp/templates')(gulp, vars(), $, args);
-// require('./gulp/fonts')(gulp, vars(), $, args);
-// require('./gulp/testing')(gulp, vars(), $, args);
-
 require('./gulp/webserver')(gulp, vars(), $, args);
 
 // Rerun the task when a file changes
@@ -32,6 +27,14 @@ require('./gulp/watch')(gulp, vars(), $, args);
 
 // Tasks
 gulp.task('create', ['clean-vars', 'move-vars', 'clean-templates', 'move-less', 'move-jade']);
-// gulp.task('campaigns', ['list-campaigns']);
-gulp.task('default', ['clean', 'templates', 'index', 'scripts', 'less', 'webserver', 'watch']);
+
+gulp.task('default', ['clean', 'templates', 'index', 'scripts', 'less', 'webserver', 'watch'], function() {
+  opn('http://localhost:4242');
+  $.util.log(	$.util.colors.cyan.bgCyan.bold('--------------------------------------------------------------------' ) );
+  $.util.log(	$.util.colors.cyan.bgCyan.bold('--------------------------------------------------------------------' ) );
+  $.util.log(	$.util.colors.white.bgMagenta.bold('Instructions for use: ' ) );
+  $.util.log(	$.util.colors.white.bgMagenta.bold('To recompile run: gulp --camp ' + args.camp + ' --action ' + args.action + ' --server ' + args.server + '    '  ) );
+  $.util.log(	$.util.colors.cyan.bgCyan.bold('--------------------------------------------------------------------' ) );
+  $.util.log(	$.util.colors.cyan.bgCyan.bold('--------------------------------------------------------------------' ) );
+});
 

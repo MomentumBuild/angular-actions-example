@@ -1,6 +1,6 @@
 module.exports = function(gulp, vars, $) {
 
-	gulp.task('less', function () {
+	gulp.task('less', ['clean'], function () {
 	  gulp.src(vars.less)
 	    .pipe($.concat('style.less'))
 	    .pipe($.less())
@@ -9,6 +9,7 @@ module.exports = function(gulp, vars, $) {
 	    .pipe($.rename('style.min.css'))
 	    .pipe(gulp.dest(vars.root))
 	    .pipe($.filesize())
+	    .pipe($.connect.reload())
 	    .on('error', $.util.log)
 	});
 
