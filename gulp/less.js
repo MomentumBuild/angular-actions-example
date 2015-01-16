@@ -8,7 +8,6 @@ module.exports = function(gulp, vars, $) {
 	    .pipe($.minifyCss({keepBreaks:false}))
 	    .pipe($.rename('style.min.css'))
 	    .pipe(gulp.dest(vars.root))
-	    .pipe($.filesize())
 	    .pipe($.connect.reload())
 	    .on('error', $.util.log)
 	});

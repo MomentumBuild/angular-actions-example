@@ -7,9 +7,7 @@ module.exports = function(gulp, vars, $) {
 	    .pipe($.rename('app.min.js'))
 	    .pipe($.uglify({mangle: false}))
 	    .pipe(gulp.dest(vars.root))
-	    .pipe($.filesize())
 	    .pipe($.connect.reload())
-	    .on('error', $.util.log)
 	});
 
 }
